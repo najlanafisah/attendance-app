@@ -20,7 +20,7 @@ class AuthServices {
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
   // Sign In with Email and Password
-  Future<UserCredential> signInWithEmailAndPassword(String email, String password) async {
+  Future<UserCredential> signInWithEmailAndPassword(String email, String password) async { // pake async karena ada proses tunggu2an
     try {
       return await _auth.signInWithEmailAndPassword(
         email: email, 
@@ -28,6 +28,32 @@ class AuthServices {
       );
     } catch (e) {
       rethrow; // ini biar balik lagi
+    }
+  }
+
+  // Register with email and password
+  Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
+    try {
+      return await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password
+      );
+    } catch (e) {
+      if (e is FirebaseAuthException) { // kalo misalnya error dari firebase
+        if (e.code == 'operation-not-allowed') {
+          throw 'Email/password sign up is not enabled. Please enable on firebase console';
+        }
+      }
+      rethrow;
+    }
+  }
+
+  // Sign Out
+  Future<void>signOut() async {
+    try {
+      await _auth.signOut();
+    } catch (e) {
+      rethrow;
     }
   }
 }
