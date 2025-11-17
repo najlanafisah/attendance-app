@@ -11,7 +11,7 @@ class UserProfile {
       id: json['id'] as String,
       email: json['email'] as String,
       fullName: json['full_name'] as String,
-      createdAt: DateTime.parse(json['created_at'] as String )// parse digunakan untuk mengganti tipe datanya yang awalnya datetime jadi String
+      createdAt: DateTime.parse(json['created_at'] as String )// parse digunakan untuk mengganti tipe datanya yang awalnya datetime jadi String karena dari awa iudh didefinisikan kalo keynya harus string. jadi wajib di parse jadi string
     );
   }
 }
