@@ -55,7 +55,6 @@ class _LoginScreenState extends State<LoginScreen> {
       title: 'Welcome Back',
       subtitle: 'Login to continue',
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Card(
             elevation: 8,

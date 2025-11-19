@@ -35,7 +35,8 @@ class GradientScaffold extends StatelessWidget {
                   SizedBox(height: 32),
                   _buildTitle(),
                   SizedBox(height: 8),
-                  _buildSubtitle()
+                  _buildSubtitle(),
+                  child
                 ],
               ),
             ),
