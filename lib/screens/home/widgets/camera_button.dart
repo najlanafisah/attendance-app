@@ -35,7 +35,7 @@ class CameraButton extends StatelessWidget {
               backgroundColor: Colors.red,
               action: SnackBarAction(
                 label: 'Settings',
-                onPressed: () => openAppSettings(),
+                onPressed: () => openAppSettings(), // ini biar bisa pindah ke settings app
               ),
             )
           );
@@ -46,8 +46,8 @@ class CameraButton extends StatelessWidget {
       // instruksi ketika permission di allow
       final ImagePicker picker = ImagePicker(); // ini ambil dari library yang ada di pubspec.yaml
       final XFile? photo = await picker.pickImage( // untuk mendefinisikan file2 yang berhubungan dgn aplikasi / 
-        source:  ImageSource.camera,
-        preferredCameraDevice: CameraDevice.front, // ini biar pake kamera depan, naanit trserah bisa di ganti juga
+        source:  ImageSource.camera, // ini biar ambilnya dari camera biar realtime
+        preferredCameraDevice: CameraDevice.front, // ini biar pake kamera depan, naanit trserah bisa di ganti juga pake yg rare
         imageQuality: 70, // compressed image
       );
 
